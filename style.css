@@ -286,6 +286,12 @@ main {
   text-align: left;
   padding: 32px 0;
 
+  ul {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 8px;
+  }
+
   button {
     font-size: 16px;
     font-weight: 600;
@@ -478,6 +484,71 @@ main {
 .news {
   flex: 1;
   background-color: var(--light-blue);
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+}
+
+.footer-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  padding: 32px 0;
+}
+
+.footer-left {
+  height: 100%;
+  font-size: 14px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  gap: 16px;
+
+  ul {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.links {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 36px;
+
+  a {
+    font-weight: 600;
+  }
+
+  a:hover {
+    color: var(--dark-blue);
+  }
+}
+
+.footer-right {
+  width: 360px;
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: end;
+    gap: 8px;
+  }
+
+  img {
+    height: 48px;
+  }
 }
 
 @media (width <= 1200px) {
