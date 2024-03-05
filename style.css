@@ -9,10 +9,14 @@
   --light-yellow: #ffdb95;
   --green: #00a473;
   --red: #fd5f3f;
-  --button-hover: #1f4e8e;
+  --red-hover: #ca4c32;
+  --yellow-hover: #cc7f0b;
+  --green-hover: #00835c;
+  --blue-hover: #1f4e8e;
   --button-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.25);
   --lighter-button-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
   --section-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.3);
+  --section-hover: 0px 3px 14px 0px rgba(0, 0, 0, 0.35);
 
   color-scheme: light dark;
   color: black;
@@ -42,9 +46,26 @@ h1 {
 
 h2 {
   font-family: "bree-serif";
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 400;
   margin: 0;
+}
+
+h3 {
+  font-family: "bree-serif";
+  font-size: 22px;
+  font-weight: 400;
+  margin: 0;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+  width: 100%;
+  color: white;
+  padding: 12px 0;
+  background-color: var(--dark-blue);
 }
 
 div {
@@ -65,26 +86,29 @@ header {
   width: 100%;
   position: fixed;
   z-index: 20;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: white;
 }
 
 .logo-buttons {
   width: 100%;
-  height: 64px;
-  background-color: white;
+  max-width: 1200px;
+  height: 60px;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 6%;
 
   img {
-    width: 40px;
+    width: 36px;
   }
 
   .logo {
     display: flex;
     flex-flow: row nowrap;
-    gap: 16px;
+    gap: 8px;
     align-items: center;
     justify-content: center;
   }
@@ -98,16 +122,22 @@ header {
   }
 }
 
-.nav-links {
-  width: inherit;
-  height: 56px;
+nav {
+  width: 100%;
   background-color: var(--dark-blue);
+  box-shadow: var(--section-shadow);
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  width: 100%;
+  max-width: 1200px;
+  height: 56px;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
   justify-content: space-between;
-  padding: 0 6%;
-  box-shadow: var(--section-shadow);
 }
 
 ul {
@@ -118,6 +148,7 @@ ul {
 
 li {
   font-weight: 600;
+  padding-top: 4px;
   font-size: 16px;
   color: white;
 }
@@ -126,13 +157,13 @@ a {
   display: flex;
   flex-flow: row nowrap;
   align-items: start;
-  gap: 8px;
+  gap: 4px;
 }
 
 button {
   border-radius: 12px;
   border: none;
-  padding: 6px 20px;
+  padding: 6px 20px 4px;
   font-family: "poppins";
   font-size: 16px;
   font-weight: 500;
@@ -140,11 +171,12 @@ button {
   cursor: pointer;
   box-shadow: var(--button-shadow);
   width: fit-content;
+  text-wrap: nowrap;
 }
 
 button:hover {
   transition: 0.3s;
-  background-color: var(--button-hover);
+  background-color: var(--blue-hover);
 }
 
 button:focus,
@@ -155,16 +187,18 @@ button:focus-visible {
 main {
   width: 100%;
   height: 100%;
-  padding-top: 120px;
+  padding-top: 116px;
 }
 
 .welcome-section {
+  height: fit-content;
   width: 100%;
   display: flex;
   flex-flow: row nowrap;
 
   img {
     width: 50%;
+    object-fit: cover;
   }
 }
 
@@ -172,12 +206,19 @@ main {
   flex: 1;
   height: auto;
   background-color: var(--light-blue);
-  text-align: left;
-  padding: 0 5% 0 6%;
+  display: flex;
+  justify-content: end;
+}
+
+.intro-content {
+  width: 100%;
+  max-width: 600px;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   gap: 16px;
+  text-align: left;
+  padding: 48px 32px 48px 0;
 
   div {
     font-weight: 500;
@@ -185,19 +226,291 @@ main {
   }
 
   button {
-    font-size: 18px;
-    padding: 8px 16px 8px 24px;
+    margin-top: 8px;
+    padding: 8px 16px 5px 24px;
     border-radius: 14px;
     display: flex;
-    text-wrap: nowrap;
     align-items: center;
     gap: 8px;
   }
 
   img {
-    transform: translateY(-8%);
+    transform: translateY(-1px);
     width: 24px;
   }
+}
+
+.program-section {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  position: relative;
+}
+
+.sidebar-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 29%;
+  height: 100%;
+  background-color: var(--light-yellow);
+}
+
+.program-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 71%;
+  height: 100%;
+  background-color: white;
+}
+
+.section-content {
+  width: 100%;
+  width: 1200px;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  z-index: 1;
+}
+
+.sidebar-content {
+  width: 29%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: start;
+  justify-content: start;
+  gap: 12px;
+  text-align: left;
+  padding: 32px 0;
+
+  button {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 18px 0 16px 24px;
+    text-align: left;
+    width: 248px;
+    border-radius: 16px;
+    background-color: white;
+    color: black;
+    box-shadow: var(--lighter-button-shadow);
+  }
+
+  button:hover,
+  button:active {
+    background-color: var(--dark-yellow);
+    box-shadow: var(--button-shadow);
+    color: white;
+  }
+
+  .clicked {
+    background-color: var(--dark-yellow);
+    box-shadow: var(--button-shadow);
+    color: white;
+  }
+}
+
+.program-content {
+  flex: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: start;
+  padding: 32px 0;
+  gap: 32px;
+  text-align: left;
+}
+
+.program-intro {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 16px;
+}
+
+.description {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.grades {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.more-grades {
+  flex-flow: column nowrap;
+  gap: 16px;
+  display: none;
+}
+
+.more-grades.active {
+  display: flex;
+}
+
+.grade-card {
+  width: 100%;
+  height: fit-content;
+  border-radius: 18px;
+  box-shadow: var(--section-shadow);
+  position: relative;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.grade-card:hover {
+  transition: 0.3s;
+  box-shadow: var(--section-hover);
+}
+
+#red {
+  background-color: var(--red);
+}
+
+#yellow {
+  background-color: var(--dark-yellow);
+}
+
+#green {
+  background-color: var(--green);
+}
+
+#blue {
+  background-color: var(--dark-blue);
+}
+
+.grade-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 56px;
+  padding: 16px 0 0;
+  width: 104px;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+}
+
+.right-content {
+  flex: 1;
+  background-color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  padding: 12px 24px;
+}
+
+.text {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4px;
+}
+
+.grade-buttons {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 6px;
+
+  .red {
+    background-color: var(--red);
+  }
+
+  .red:hover {
+    background-color: var(--red-hover);
+  }
+
+  .yellow {
+    background-color: var(--dark-yellow);
+  }
+
+  .yellow:hover {
+    background-color: var(--yellow-hover);
+  }
+
+  .green {
+    background-color: var(--green);
+  }
+
+  .green:hover {
+    background-color: var(--green-hover);
+  }
+
+  button {
+    width: 160px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    padding: 6px 0px 4px;
+  }
+}
+
+.toggle {
+  background-image: url("/toggle_down.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.toggle.clicked {
+  transition: 0.5s;
+  transform: rotate(180deg);
+}
+
+.news-section {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.news {
+  flex: 1;
+  background-color: var(--light-blue);
+}
+
+@media (width <= 1200px) {
+  .logo-buttons,
+  .nav-links {
+    padding: 0 64px;
+  }
+
+  .intro-content {
+    padding: 32px 64px;
+  }
+
+  .sidebar-content {
+    padding: 0px 64px;
+  }
+}
+
+@media (width > 1200px) {
+  h1 {
+    font-size: 38px;
+  }
+
+  /* .sidebar-bg {
+    width: 40%;
+  }
+
+  .program-bg {
+    width: 60%;
+  } */
+}
+
+@media (width <= 800px) {
+  /* placeholder */
 }
 
 @media (prefers-color-scheme: light) {
