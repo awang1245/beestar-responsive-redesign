@@ -525,7 +525,7 @@ section {
 }
 
 .toggle {
-  background-image: url("public/toggle_down.svg");
+  background-image: url("./public/toggle_down.svg");
   background-repeat: no-repeat;
   background-position: center;
   width: 64px;
@@ -636,7 +636,7 @@ section {
     height: 40px;
     padding: 0;
     border-radius: 100%;
-    background-image: url("public/right_arrow.svg");
+    background-image: url("./public/right_arrow.svg");
     background-repeat: no-repeat;
     background-position: center;
   }
