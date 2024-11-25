@@ -1,5 +1,3 @@
-import "./style.css";
-
 function toggleExpand() {
   const moreGrades = document.querySelector(".more-grades");
   moreGrades.classList.toggle("active");
